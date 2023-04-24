@@ -28,7 +28,7 @@ const MenuIcon = () => {
       {isOpen && (
         <div
           className="absolute rounded-xl shadow-md md:w-[20vw] lg:w-[15vw] xl:w-[13vw]
-        w-20 bg-blue-300 overflow-hidden right-2
+        w-20 bg-gray-300 overflow-hidden right-2
         top-20 text-sm"
         >
           <div className="flex flex-col cursor-pointer">
