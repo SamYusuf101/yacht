@@ -1,4 +1,4 @@
-import Modal from "./components/Modals/Modal";
+import RegisteredModal from "./components/Modals/RegisteredModal";
 import Navbar from "./components/Navbar";
 import "./globals.css";
 import { Nunito } from "next/font/google";
@@ -18,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={font.className}>
-        <Modal isOpen />
+        <RegisteredModal />
         <Navbar />
         {children}
       </body>
