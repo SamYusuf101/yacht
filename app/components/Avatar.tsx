@@ -8,7 +8,7 @@ const Avatar = () => {
       className="rounded-full"
       height="30"
       width="30"
-      alt="Avatar"
+      alt="Avataar"
       src="/images/placeholder.jpg"
     />
   );
