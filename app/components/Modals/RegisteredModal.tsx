@@ -12,6 +12,7 @@ import Input from "../Input";
 import { toast } from "react-hot-toast";
 import Button from "../Button";
 
+
 const RegisteredModal = () => {
   const registerModal = UseRegisterdModel();
   const [loading, setLoading] = useState(false);
@@ -31,8 +32,7 @@ const RegisteredModal = () => {
   const onsubmit: SubmitHandler<FieldValues> = (data) => {
     setLoading(true);
 
-    axios
-      .post("/api/register", data)
+    axios.post('api/register/', data)
       .then(() => {
         registerModal.onClose();
       })
