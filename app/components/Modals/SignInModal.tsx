@@ -13,8 +13,10 @@ import Heading from "../Heading";
 import Input from "../Input";
 import { toast } from "react-hot-toast";
 import Button from "../Button";
+import { useRouter } from "next/navigation";
 
 const SignInModal = () => {
+  const router = useRouter();
   const registerModal = UseRegisterdModel();
   const LoginModal = UseLoginModal();
   const [loading, setLoading] = useState(false);
@@ -33,17 +35,21 @@ const SignInModal = () => {
   const onsubmit: SubmitHandler<FieldValues> = (data) => {
     setLoading(true);
 
-    axios
-      .post("api/signIn/", data)
-      .then(() => {
+    signIn("credentials", {
+      ...data,
+      redirect: false,
+    }).then((callback) => {
+      setLoading(false);
+
+      if (callback?.ok) {
+        toast.success("Logged In");
+        router.refresh();
         LoginModal.onClose();
-      })
-      .catch((error) => {
-        toast.error("something went wrong");
-      })
-      .finally(() => {
-        setLoading(false);
-      });
+      }
+      if (callback?.error) {
+        toast.error(callback.error);
+      }
+    });
   };
 
   const bodyContent = (
