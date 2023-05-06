@@ -8,7 +8,7 @@ import MenuIcon from "./MenuIcon";
 
 const Navbar = () => {
   return (
-    <div className="fixed w-full bg-white z-10 shadow-sm">
+    <div className="fixed w-full bg-gray-100 z-10 shadow-sm">
       <div className="border-4 py-4">
         <Container>
           <div className="justify-between  flex flex-row items-center gap-3 md:gap-0">
