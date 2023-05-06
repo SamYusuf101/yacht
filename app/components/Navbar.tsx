@@ -5,8 +5,14 @@ import Logo from "./Logo";
 import Search from "./Search";
 import UserMenu from "./UserMenu";
 import MenuIcon from "./MenuIcon";
+import { SafeUser } from "../types";
+import Categories from "./Categories";
 
-const Navbar = () => {
+interface NavbarProps {
+  currentUser?: SafeUser | null;
+}
+
+const Navbar: React.FC<NavbarProps> = ({ currentUser }) => {
   return (
     <div className="fixed w-full bg-gray-100 z-10 shadow-sm">
       <div className="border-4 py-4">
@@ -15,10 +21,11 @@ const Navbar = () => {
             <Logo />
             <UserMenu />
             <Search />
-            <MenuIcon />
+            <MenuIcon currentUser={currentUser} />
           </div>
         </Container>
       </div>
+      <Categories />
     </div>
   );
 };
