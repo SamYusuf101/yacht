@@ -27,7 +27,7 @@ const Categories = () => {
   return (
     <Container>
       <div
-        className="bg-white max-w-[1000] pt-10  flex flex-row items-center
+        className="bg-white pt-10  flex flex-row items-center
     justify-between overflow-x-auto"
       >
         {categories.map((items) => (
