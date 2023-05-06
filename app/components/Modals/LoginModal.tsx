@@ -18,8 +18,10 @@ import Button from "../Button";
 
 const LoginModal = () => {
   const router = useRouter();
+
   const loginModal = useLoginModal();
   const registerModal = useRegisterModal();
+
   const [isLoading, setIsLoading] = useState(false);
 
   const {
@@ -57,7 +59,7 @@ const LoginModal = () => {
 
   const bodyContent = (
     <div className="flex flex-col gap-4">
-      <Heading title="Welcome back" subtitle="Login to your account!" />
+      <Heading title="Welcome back" subtitle="Login to your account!" center />
       <Input
         id="email"
         label="Email"
@@ -98,7 +100,7 @@ const LoginModal = () => {
       text-neutral-500 text-center mt-4 font-light"
       >
         <p>
-          First time using Airbnb?
+          Dont have an account?
           <span
             onClick={onToggle}
             className="

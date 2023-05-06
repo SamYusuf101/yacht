@@ -1,3 +1,5 @@
+"use client";
+
 import { useRouter, useSearchParams } from "next/navigation";
 import React, { useCallback } from "react";
 import { IconType } from "react-icons";
@@ -7,13 +9,11 @@ interface CategoryBoxProps {
   icon: IconType;
   label: string;
   selected?: boolean;
-  description: string;
 }
 const CategoryBox: React.FC<CategoryBoxProps> = ({
   label,
   icon: Icon,
   selected,
-  description,
 }) => {
   const router = useRouter();
   const params = useSearchParams();
@@ -50,7 +50,7 @@ const CategoryBox: React.FC<CategoryBoxProps> = ({
     flex flex-col items-center justify-center
     gap-2 p-3 border-b-2 hover:text-neutral-800
     transition cursor-pointer
-    ${selected ? "border-b-neutral-800" : "border-transparent"}
+    ${selected ? "border-blue-500" : "border-transparent"}
     ${selected ? "text-neutral-800" : "text-neutral-500"}
 
     `}
