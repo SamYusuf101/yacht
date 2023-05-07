@@ -3,11 +3,11 @@ import React, { useCallback, useState } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
 import Avatar from "./Avatar";
 import MenuItem from "./MenuItem";
-import RegisterModal from "./Modals/RegisterModal";
 import useRegisterModal from "../hooks/useRegisterModal";
 import useLoginModal from "../hooks/useLoginModal";
 import { signOut } from "next-auth/react";
 import { SafeUser } from "../types";
+import useRentModel from "../hooks/useRentModel";
 
 interface MenuIcon {
   currentUser?: SafeUser | null;
@@ -16,6 +16,7 @@ interface MenuIcon {
 const MenuIcon: React.FC<MenuIcon> = ({ currentUser }) => {
   const registerModal = useRegisterModal();
   const LoginModal = useLoginModal();
+  const rentModal = useRentModel();
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -47,7 +48,7 @@ const MenuIcon: React.FC<MenuIcon> = ({ currentUser }) => {
             {currentUser ? (
               <>
                 <MenuItem onClick={() => {}} label="My Favourites" />
-                <MenuItem onClick={() => {}} label="My yachts" />
+                <MenuItem onClick={rentModal.onOpen} label="My yachts" />
                 <MenuItem onClick={() => {}} label="My Reservations" />
                 <MenuItem onClick={() => {}} label="My Trips" />
 

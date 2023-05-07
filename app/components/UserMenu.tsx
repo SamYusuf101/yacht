@@ -3,19 +3,23 @@ import React, { useCallback } from "react";
 import { SafeUser } from "../types";
 import LoginModal from "./Modals/LoginModal";
 import useLoginModal from "../hooks/useLoginModal";
+import useRentModel from "../hooks/useRentModel";
 
 interface UserMenuProps {
   currentUser?: SafeUser | null;
 }
 
 const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
-  const LoginModal = useLoginModal();
+  const loginModal = useLoginModal();
+  const rentModel = useRentModel();
 
   const onRent = useCallback(() => {
     if (!currentUser) {
-      return LoginModal.onOpen();
+      return loginModal.onOpen();
     }
-  }, [currentUser, LoginModal]);
+
+    rentModel.onOpen();
+  }, [currentUser, loginModal]);
   return (
     <div className="relative">
       <div className="flex flex-row items-center gap-3">
