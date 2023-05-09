@@ -5,7 +5,8 @@ import useRentModel from "@/app/hooks/useRentModel";
 import Heading from "../Heading";
 import { categories } from "../Categories";
 import CategoryInput from "../CategoryInput";
-import { useForm } from "react-hook-form";
+import { FieldValues, useForm } from "react-hook-form";
+import CountrySelect from "../CountrySelect";
 
 enum STEPS {
   CATEGORY = 0,
@@ -20,10 +21,37 @@ const RentModel = () => {
   const rentModal = useRentModel();
   const [step, setStep] = useState(STEPS.CATEGORY);
 
-  const {register, handleSubmit, setValue. watch, formState:{
-    errors,
-  }, reset
-}=useForm
+  const {
+    register,
+    handleSubmit,
+    setValue,
+    watch,
+    formState: { errors },
+    reset,
+  } = useForm<FieldValues>({
+    defaultValues: {
+      category: "",
+      location: null,
+      guestCount: 1,
+      roomCount: 1,
+      bathroomCount: 1,
+      imageSrc: "",
+      price: 1,
+      title: "",
+      description: "",
+    },
+  });
+
+  const category = watch("category");
+  const location = watch("location");
+
+  const setCustomValue = (id: string, value: any) => {
+    setValue(id, value, {
+      shouldValidate: true,
+      shouldDirty: true,
+      shouldTouch: true,
+    });
+  };
 
   const onBack = () => {
     setStep((value) => value - 1);
@@ -61,8 +89,8 @@ const RentModel = () => {
         {categories.map((item) => (
           <div key={item.label} className="col-span-1">
             <CategoryInput
-              onClick={() => {}}
-              selected={false}
+              onClick={(category) => setCustomValue("category", category)}
+              selected={category === item.label}
               label={item.label}
               icon={item.icon}
             />
@@ -71,12 +99,28 @@ const RentModel = () => {
       </div>
     </div>
   );
+
+  if (step === STEPS.LOCATION) {
+    bodyContent = (
+      <div className="flex flex-col gap-8">
+        <Heading
+          title="Where is your yacht located?"
+          subtitle="Help guests find you"
+        />
+
+        <CountrySelect
+          value={location}
+          onChange={(value) => setCustomValue("location", value)}
+        />
+      </div>
+    );
+  }
   return (
     <Modal
       isOpen={rentModal.isOpen}
       title="Yacht Masters! feel comfortable "
       onClose={rentModal.onClose}
-      onSubmit={rentModal.onClose}
+      onSubmit={onNext}
       actionLabel={actionLabel}
       secondaryActionLabel={secondaryActonLabel}
       secondaryAction={step === STEPS.CATEGORY ? undefined : onBack}
