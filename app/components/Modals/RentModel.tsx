@@ -50,6 +50,7 @@ const RentModel = () => {
   const guestCount = watch("guestCount");
   const cabinCount = watch("cabinCount");
   const bathroomCount = watch("bathroomCount");
+  const imageSrc = watch("imageSrc");
 
   const Map = useMemo(
     () =>
