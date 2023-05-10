@@ -7,6 +7,9 @@ import { categories } from "../Categories";
 import CategoryInput from "../CategoryInput";
 import { FieldValues, useForm } from "react-hook-form";
 import CountrySelect from "../CountrySelect";
+import dynamic from "next/dynamic";
+import Counter from "../Counter";
+import ImageUpload from "../ImageUpload";
 
 enum STEPS {
   CATEGORY = 0,
@@ -33,7 +36,7 @@ const RentModel = () => {
       category: "",
       location: null,
       guestCount: 1,
-      roomCount: 1,
+      cabinCount: 1,
       bathroomCount: 1,
       imageSrc: "",
       price: 1,
@@ -44,6 +47,17 @@ const RentModel = () => {
 
   const category = watch("category");
   const location = watch("location");
+  const guestCount = watch("guestCount");
+  const cabinCount = watch("cabinCount");
+  const bathroomCount = watch("bathroomCount");
+
+  const Map = useMemo(
+    () =>
+      dynamic(() => import("../Map"), {
+        ssr: false,
+      }),
+    [location]
+  );
 
   const setCustomValue = (id: string, value: any) => {
     setValue(id, value, {
@@ -112,6 +126,52 @@ const RentModel = () => {
           value={location}
           onChange={(value) => setCustomValue("location", value)}
         />
+
+        <Map center={location?.latlng} />
+      </div>
+    );
+  }
+
+  if (step === STEPS.INFO) {
+    bodyContent = (
+      <div className="flex flex-col gap-8">
+        <Heading
+          title="Share some basics about your yacht"
+          subtitle="what amenities do you have"
+        />
+        <Counter
+          title="Guests"
+          subtitle="How many guests do you allow"
+          value={guestCount}
+          onChange={(value) => setCustomValue("guestCount", value)}
+        />
+        <hr />
+        <Counter
+          title="Cabins"
+          subtitle="How many cabins in your yacht"
+          value={cabinCount}
+          onChange={(value) => setCustomValue("cabinCount", value)}
+        />
+        <hr />
+
+        <Counter
+          title="Bathrooms"
+          subtitle="How many bathrooms do you have"
+          value={bathroomCount}
+          onChange={(value) => setCustomValue("bathroomCount", value)}
+        />
+      </div>
+    );
+  }
+
+  if (step === STEPS.IMAGES) {
+    bodyContent = (
+      <div className="flex flex-col gap-8">
+        <Heading
+          title="Add a photo of your yacht"
+          subtitle="Show guests what your yacht looks like"
+        />
+        <ImageUpload />
       </div>
     );
   }
