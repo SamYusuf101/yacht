@@ -15,7 +15,7 @@ const ImageUpload = () => {
         }
         return (
           <button className="button" onClick={handleOnClick}>
-            Upload an Image
+            Upload an Imageiiiiiiii
           </button>
         );
       }}
