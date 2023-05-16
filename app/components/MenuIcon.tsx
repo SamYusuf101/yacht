@@ -53,7 +53,7 @@ const MenuIcon: React.FC<MenuIcon> = ({ currentUser }) => {
                   onClick={() => router.push("/favorites")}
                   label="My Favourites"
                 />
-                <MenuItem onClick={rentModal.onOpen} label="My yachts" />
+                <MenuItem onClick={rentModal.onOpen} label="Add yachts" />
                 <MenuItem
                   onClick={() => router.push("/reservations")}
                   label="My Reservations"
@@ -61,6 +61,10 @@ const MenuIcon: React.FC<MenuIcon> = ({ currentUser }) => {
                 <MenuItem
                   onClick={() => router.push("/trips")}
                   label="My Trips"
+                />
+                <MenuItem
+                  onClick={() => router.push("/Yachts")}
+                  label="My Yachts"
                 />
 
                 <hr />
