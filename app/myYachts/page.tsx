@@ -2,10 +2,10 @@ import EmptyState from "@/app/components/EmptyState";
 import ClientOnly from "@/app/components/ClientOnly";
 
 import getCurrentUser from "@/app/actions/getCurrentUser";
-import getReservations from "@/app/actions/getReservations";
-import TripsClient from "./TripsClient";
+import getListings from "../actions/getListings";
+import YachtClient from "./YachtClient";
 
-const TripsPage = async () => {
+const MyYachts = async () => {
   const currentUser = await getCurrentUser();
 
   if (!currentUser) {
@@ -16,14 +16,14 @@ const TripsPage = async () => {
     );
   }
 
-  const reservations = await getReservations({ userId: currentUser.id });
+  const listings = await getListings({ userId: currentUser.id });
 
-  if (reservations.length === 0) {
+  if (listings.length === 0) {
     return (
       <ClientOnly>
         <EmptyState
-          title="No trips found"
-          subtitle="Looks like you havent reserved any trips."
+          title="No yachts found"
+          subtitle="Looks like you have no yachts."
         />
       </ClientOnly>
     );
@@ -31,9 +31,9 @@ const TripsPage = async () => {
 
   return (
     <ClientOnly>
-      <TripsClient reservations={reservations} currentUser={currentUser} />
+      <YachtClient listings={listings} currentUser={currentUser} />
     </ClientOnly>
   );
 };
 
-export default TripsPage;
+export default MyYachts;

@@ -63,7 +63,7 @@ const MenuIcon: React.FC<MenuIcon> = ({ currentUser }) => {
                   label="My Trips"
                 />
                 <MenuItem
-                  onClick={() => router.push("/Yachts")}
+                  onClick={() => router.push("/myYachts")}
                   label="My Yachts"
                 />
 

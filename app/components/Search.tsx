@@ -1,10 +1,14 @@
 "use client";
 import React from "react";
 import { BiSearch } from "react-icons/bi";
+import useSearchModal from "../hooks/useSearchModel";
 
 const Search = () => {
+  const serachModal = useSearchModal();
+
   return (
     <div
+      onClick={serachModal.onOpen}
       className="border-[1px] w-full md:w-auto py-2
   rounded-full shadow-sm hover:shadow-md transition cursor-pointer "
     >
