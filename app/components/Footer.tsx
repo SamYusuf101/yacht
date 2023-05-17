@@ -10,38 +10,38 @@ function Footer() {
     >
       <div className="space-y-4 text-xs text-gray-800">
         <h5 className="font-bold">About</h5>
-        <p>How SwimRest Works</p>
-        <p>Newsroom</p>
+        <p>How Yacht Works</p>
+        <p>My Yachts</p>
         <p>Investors</p>
-        <p>SwimRest plus</p>
-        <p>SwimRest plus</p>
+        <p>Yacht plus</p>
+        <p>Yacht plus</p>
       </div>
 
       <div className="space-y-4 text-xs text-gray-800">
         <h5 className="font-bold">About</h5>
-        <p>How SwimRest Works</p>
-        <p>Newsroom</p>
+        <p>How Yacht Works</p>
+        <p>My Yachts</p>
         <p>Investors</p>
-        <p>SwimRest plus</p>
-        <p>SwimRest plus</p>
+        <p>Yacht plus</p>
+        <p>Yacht plus</p>
       </div>
 
       <div className="space-y-4 text-xs text-gray-800">
         <h5 className="font-bold">About</h5>
-        <p>How SwimRest Works</p>
-        <p>Newsroom</p>
+        <p>How Yacht Works</p>
+        <p>My Yachts</p>
         <p>Investors</p>
-        <p>SwimRest plus</p>
-        <p>SwimRest plus</p>
+        <p>Yacht plus</p>
+        <p>Yacht plus</p>
       </div>
 
       <div className="space-y-4 text-xs text-gray-800">
         <h5 className="font-bold">About</h5>
-        <p>How SwimRest Works</p>
-        <p>Newsroom</p>
+        <p>How Yacht Works</p>
+        <p>My Yachts</p>
         <p>Investors</p>
-        <p>SwimRest plus</p>
-        <p>SwimRest plus</p>
+        <p>Yacht plus</p>
+        <p>Yacht plus</p>
       </div>
     </div>
   );
