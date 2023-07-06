@@ -1,6 +1,6 @@
 # Project Description
 
-This is a re-design of the Netflix web-app...Built with next js(TypesCript) and tailwind-css. Firebase is used for userAuthentication.
+Yacht is designed to enable users reserve yacht of different kinds. Anyone can create an account and lease yachts. This web app is embedded with maps and a simple reservation system.
 
 ## View demo on
 
