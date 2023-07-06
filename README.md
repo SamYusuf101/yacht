@@ -22,9 +22,9 @@ This is a re-design of the Netflix web-app...Built with next js(TypesCript) and 
 https://netflix-redesign-samyusuf101.vercel.app](https://yacht-rose.vercel.app/
 
 # Screenshots
-![yacht](images/yacht1.png)
-![yacht](images/yacht2.png)
-![yacht](images/yacht3.png)
+![yacht](public/images/yacht1.png)
+![yacht](public/images/yacht2.png)
+![yacht](public/images/yacht3.png)
 
 
 
